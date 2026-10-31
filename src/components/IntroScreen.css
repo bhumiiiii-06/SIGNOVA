@@ -1,0 +1,97 @@
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f0f3ff;
+  opacity: 1;
+  transition: opacity 650ms ease;
+}
+
+.intro-screen.intro-exiting {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f0f3ff;
+}
+
+.intro-skip-button {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  padding: 11px 20px;
+  border: 1px solid rgba(101, 120, 216, 0.35);
+  border-radius: 999px;
+  background: rgba(240, 243, 255, 0.94);
+  color: #10172b;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.intro-skip-button:hover {
+  background: #a9b8ff;
+  transform: translateY(-2px);
+}
+
+.intro-skip-button:focus-visible {
+  outline: 3px solid #6578d8;
+  outline-offset: 4px;
+}
+
+@keyframes intro-screen-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-skip-button {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-screen {
+    animation: none;
+  }
+
+  .intro-skip-button {
+    transition: none;
+  }
+}
+@keyframes dashboard-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-screen {
+    transition: none;
+  }
+}
